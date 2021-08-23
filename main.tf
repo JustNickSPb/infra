@@ -37,7 +37,7 @@ resource "aws_security_group" "app_server" {
 
 # Создаем балансировщик
 resource "aws_elb" "balancer" {
-  name = "My-Balancer"
+  name = "My-Balancer-2"
 
   availability_zones = [data.aws_availability_zones.available.names[0], data.aws_availability_zones.available.names[1]]
   security_groups = [aws_security_group.app_server.id]
@@ -64,7 +64,7 @@ resource "aws_route53_zone" "primary" {
 }
 
 resource "aws_route53_record" "www" {
-  zone_id = aws_route53_zone.primary.zone_id
+  zone_id = "Z0531259IR21MCPON3TX"
   name    = "nickops.space"
   type    = "A"
 
