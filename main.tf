@@ -92,7 +92,7 @@ resource "aws_launch_configuration" "app_server" {
 resource "aws_autoscaling_group" "app" {
   name = "ASG-${aws_launch_configuration.app_server.name}"
   launch_configuration = aws_launch_configuration.app_server.name
-  min_size = 0
+  min_size = 1
   max_size = 1
   #min_elb_capacity = 1
   vpc_zone_identifier  = [aws_default_subnet.availability_zone_1.id, aws_default_subnet.availability_zone_2.id]
